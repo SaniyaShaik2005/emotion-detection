@@ -1,0 +1,20 @@
+# Virtual environment — gigabytes, must never go into the image
+EMDS/
+
+# Python cache
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+
+# Runtime data — managed by Docker volumes, not baked into the image
+backend/uploads/
+backend/*.db
+backend/.env
+.env
+
+# HuggingFace model cache — managed by Docker volume, not baked in
+.cache/
+
+# NOTE: ml_engine/models/ is intentionally NOT excluded.
+# If best_model.keras and encoder.pkl exist, they are copied into the image
+# and used as the local CNN+LSTM fallback (model priority 4 of 5).

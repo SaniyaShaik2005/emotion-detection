@@ -1,0 +1,35 @@
+# Python virtual environment
+emotion-detection-system/EMDS/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+
+# Database files — runtime data, not source code
+emotion-detection-system/backend/*.db
+emotion-detection-system/backend/uploads/
+
+# HuggingFace model cache — auto-downloads on first run, no need to commit
+.cache/
+emotion-detection-system/.cache/
+
+# Local ML model weights (trained on synthetic data, HF models are better anyway)
+# Uncomment the line below if you want to exclude them:
+# emotion-detection-system/ml_engine/models/best_model.keras
+# emotion-detection-system/ml_engine/models/encoder.pkl
+
+# Environment files — contain secrets
+.env
+**/.env
+
+# Frontend build output
+app/dist/
+app/node_modules/
+
+# Claude Code local settings
+.claude/
+
+# IDE / OS files
+.idea/
+.vscode/
+*.DS_Store
+Thumbs.db

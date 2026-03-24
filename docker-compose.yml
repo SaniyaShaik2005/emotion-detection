@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./emotion-detection-system
+    ports:
+      - "8000:8000"
+    environment:
+      # SQLite stored in a named volume so it survives container restarts
+      - DATABASE_URL=sqlite:////data/emotion_detection.db
+      # HuggingFace models cached in a named volume (downloaded once, reused forever)
+      - HF_HOME=/app/.cache/huggingface
+    volumes:
+      - backend_db:/data                        # SQLite database
+      - backend_uploads:/app/backend/uploads    # Call recordings
+      - hf_model_cache:/app/.cache/huggingface  # HuggingFace model weights
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./app
+    ports:
+      - "5173:5173"
+    environment:
+      # Browser connects to localhost:8000 — port-mapped to backend container
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_db:        # Persists SQLite database
+  backend_uploads:   # Persists call recordings
+  hf_model_cache:    # Persists downloaded HuggingFace models (~1-3 GB, download once)

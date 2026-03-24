@@ -1,0 +1,30 @@
+# Docker requirements — torch/torchaudio are installed separately in the Dockerfile
+# (CPU-only wheels) so they are NOT listed here.
+
+# HuggingFace model stack (audeering, SUPERB, ehcalabres wav2vec2 models)
+transformers>=4.40.0
+safetensors>=0.4.0
+accelerate>=0.26.0
+
+# Audio Processing
+librosa>=0.10.0
+soundfile>=0.12.0
+noisereduce>=3.0.0
+
+# Backend API
+fastapi>=0.103.0
+uvicorn[standard]>=0.23.0
+websockets>=11.0
+python-multipart>=0.0.6
+
+# Database
+sqlalchemy>=2.0.0
+pymysql>=1.1.0          # Only needed if using MySQL instead of SQLite
+
+# ML utilities
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Utilities
+pydantic>=2.0.0
+python-dotenv>=1.0.0

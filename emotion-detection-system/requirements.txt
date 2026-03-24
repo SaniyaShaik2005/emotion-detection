@@ -1,0 +1,42 @@
+# Emotion Detection System - Requirements
+# Install with: pip install -r requirements.txt
+
+# Machine Learning
+tensorflow>=2.13.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Audio Processing
+librosa>=0.10.0
+noisereduce>=3.0.0
+soundfile>=0.12.0
+
+# Backend API
+fastapi>=0.103.0
+uvicorn[standard]>=0.23.0
+websockets>=11.0
+python-multipart>=0.0.6
+
+# Database
+sqlalchemy>=2.0.0
+pymysql>=1.1.0
+
+# Data Processing
+pandas>=2.0.0
+
+# Visualization (for reports)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Utilities
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Optional: For production deployment
+# gunicorn>=21.0.0
+# psycopg2-binary>=2.9.0  # For PostgreSQL
+
+# Pretrained model support (HuggingFace)
+transformers>=4.30.0
+torch>=2.0.0
+torchaudio>=2.0.0
